@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+
 import { Metadata } from "next";
 import { Atkinson } from "@/components/ui/fonts";
 import { cn } from "@/lib/utils";
