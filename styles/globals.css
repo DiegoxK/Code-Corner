@@ -41,3 +41,13 @@
     @apply border-border;
   }
 }
+
+.notion-frame {
+  @apply bg-background;
+  padding: 0 0 !important;
+  .notion-header {
+    background-color: rgb(23, 23, 29);
+    top: 56px;
+    z-index: 1;
+  }
+}
