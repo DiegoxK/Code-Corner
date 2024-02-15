@@ -1,14 +1,14 @@
 import { notion } from "@/lib/notion";
 import Image from "next/image";
 import Link from "next/link";
-import { getBlockIcon, getBlockTitle, getPageImageUrls } from "notion-utils";
+import { getBlockIcon, getBlockTitle } from "notion-utils";
 
 export default async function Blog() {
   const rootPageId = "1ecf59c6f5c74f25b1a0d91f7c8dbe1c";
   const recordMap = await notion.getPage(rootPageId);
 
   const blogs = Object.values(recordMap.block).filter(
-    (block) => block.value.type === "page"
+    (block) => block.value.type === "page",
   );
 
   return (

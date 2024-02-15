@@ -19,8 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background text-foreground font-sans antialiased",
-          Atkinson.className
+          "min-h-screen bg-background font-sans text-foreground antialiased",
+          Atkinson.className,
         )}
       >
         <Header />
