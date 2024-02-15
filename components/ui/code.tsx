@@ -26,9 +26,7 @@ export const Code: React.FC<{
     block.properties?.language?.[0]?.[0] || defaultLanguage
   ).toLowerCase();
 
-  const codeRef = useRef<
-    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> | undefined
-  >();
+  const codeRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (codeRef.current) {
