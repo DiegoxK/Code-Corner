@@ -50,7 +50,12 @@ import { memo } from "react";
 //   }),
 // );
 
-const Code = dynamic(() => import("../ui/code").then((m) => m.Code));
+const Code = dynamic(() =>
+  import("../ui/code").then(async (m) => {
+    await Promise.all([import("prismjs/components/prism-python.min.js")]);
+    return m.Code;
+  }),
+);
 
 const Collection = dynamic(() =>
   import("react-notion-x/build/third-party/collection").then(

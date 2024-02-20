@@ -1,14 +1,12 @@
-"use client";
 import { CodeBlock } from "notion-types";
 import { getBlockTitle } from "notion-utils";
 import { useNotionContext } from "react-notion-x";
 import { highlightElement } from "prismjs";
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 // import "prismjs/components/prism-clike.min.js";
 // import "prismjs/components/prism-css-extras.min.js";
 // import "prismjs/components/prism-css.min.js";
-import "prismjs/components/prism-javascript.min.js";
-import "prismjs/components/prism-python";
+// import "prismjs/components/prism-javascript.min.js";
 // import "prismjs/components/prism-js-extras.min.js";
 // import "prismjs/components/prism-json.min.js";
 // import "prismjs/components/prism-jsx.min.js";
