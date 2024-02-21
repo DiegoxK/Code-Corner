@@ -3,6 +3,7 @@ import { getBlockTitle } from "notion-utils";
 import { useNotionContext } from "react-notion-x";
 import { highlightElement } from "prismjs";
 import { useEffect, useRef } from "react";
+import "@/styles/prism-code.css";
 // import "prismjs/components/prism-clike.min.js";
 // import "prismjs/components/prism-css-extras.min.js";
 // import "prismjs/components/prism-css.min.js";
