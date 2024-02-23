@@ -9,6 +9,7 @@ import "prismjs/themes/prism-tomorrow.css";
 import "katex/dist/katex.min.css";
 import Image from "next/image";
 import { memo } from "react";
+import SmoothScroll from "../ui/navigation/smoothscroll";
 
 // const Code = dynamic(() =>
 //   import("react-notion-x/build/third-party/code").then(async (m) => {
@@ -102,6 +103,7 @@ export const NotionPage = ({ recordMap, rootPageId }: NotionPageProps) => {
 
   return (
     <div className="notion__container">
+      <SmoothScroll />
       <NotionRenderer
         recordMap={recordMap}
         fullPage={true}
