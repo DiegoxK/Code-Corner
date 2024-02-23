@@ -1,0 +1,65 @@
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { Block, ExtendedRecordMap, Role } from "notion-types";
+import { getBlockIcon, getBlockTitle } from "notion-utils";
+import { defaultMapImageUrl } from "react-notion-x";
+
+type blogs = {
+  role: Role;
+  value: Block;
+}[];
+
+type BlogGalleryProps = {
+  blogs: blogs;
+  recordMap: ExtendedRecordMap;
+};
+
+export default function BlogGallery({ blogs, recordMap }: BlogGalleryProps) {
+  return (
+    <>
+      {blogs.map((blog) => {
+        const pageIconUrl = getBlockIcon(blog.value, recordMap);
+        const title = getBlockTitle(blog.value, recordMap);
+        const pageCoverUrl = blog.value?.format?.page_cover;
+        const pageCover = defaultMapImageUrl(pageCoverUrl, blog.value);
+        const pageIcon = defaultMapImageUrl(pageIconUrl, blog.value);
+        const pagePosition = blog.value?.format?.page_cover_position;
+
+        return (
+          <Link key={blog.value.id} href={`/blog/${blog.value.id}`}>
+            <div>
+              <div className="w-[213px] flex-none">
+                <div className="relative h-[120px] ">
+                  {pageCover && (
+                    <Image
+                      src={pageCover}
+                      fill
+                      objectFit="cover"
+                      objectPosition={
+                        pagePosition === 1
+                          ? "top"
+                          : pagePosition === 2
+                            ? "center"
+                            : "bottom"
+                      }
+                      alt={title}
+                    />
+                  )}
+                </div>
+              </div>
+
+              <div className="flex">
+                {pageIcon && (
+                  <Image src={pageIcon} width={20} height={20} alt={title} />
+                )}
+
+                <div>{title}</div>
+              </div>
+            </div>
+          </Link>
+        );
+      })}
+    </>
+  );
+}
