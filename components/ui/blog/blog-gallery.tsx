@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Block, ExtendedRecordMap, Role } from "notion-types";
@@ -33,16 +34,16 @@ export default function BlogGallery({ blogs, recordMap }: BlogGalleryProps) {
                 <div className="relative h-[120px] ">
                   {pageCover && (
                     <Image
+                      className={cn(
+                        "h-auto w-auto object-cover",
+                        pagePosition === 1
+                          ? "object-top"
+                          : pagePosition === 2
+                            ? "object-center"
+                            : "object-bottom",
+                      )}
                       src={pageCover}
                       fill
-                      objectFit="cover"
-                      objectPosition={
-                        pagePosition === 1
-                          ? "top"
-                          : pagePosition === 2
-                            ? "center"
-                            : "bottom"
-                      }
                       alt={title}
                     />
                   )}
