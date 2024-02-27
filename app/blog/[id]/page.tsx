@@ -6,6 +6,7 @@ interface CollectionBlock extends BaseBlock {
   is_template?: boolean;
 }
 // TODO: Add Cloudinary image hosting
+// TODO: Include nested pages
 export async function generateStaticParams() {
   const rootPageId = "1ecf59c6f5c74f25b1a0d91f7c8dbe1c";
   const recordMap = await notion.getPage(rootPageId);
