@@ -18,7 +18,7 @@ type BlogGalleryProps = {
 
 export default function BlogGallery({ blogs, recordMap }: BlogGalleryProps) {
   return (
-    <>
+    <div className="flex flex-wrap">
       {blogs.map((blog) => {
         const pageIconUrl = getBlockIcon(blog.value, recordMap);
         const title = getBlockTitle(blog.value, recordMap);
@@ -28,39 +28,70 @@ export default function BlogGallery({ blogs, recordMap }: BlogGalleryProps) {
         const pagePosition = blog.value?.format?.page_cover_position;
 
         return (
-          <Link key={blog.value.id} href={`/blog/${blog.value.id}`}>
-            <div>
-              <div className="w-[213px] flex-none">
-                <div className="relative h-[120px] ">
-                  {pageCover && (
-                    <Image
-                      className={cn(
-                        "h-auto w-auto object-cover",
-                        pagePosition === 1
-                          ? "object-top"
-                          : pagePosition === 2
-                            ? "object-center"
-                            : "object-bottom",
-                      )}
-                      src={pageCover}
-                      fill
-                      alt={title}
-                    />
-                  )}
-                </div>
-              </div>
-
-              <div className="flex">
-                {pageIcon && (
-                  <Image src={pageIcon} width={20} height={20} alt={title} />
-                )}
-
-                <div>{title}</div>
-              </div>
-            </div>
-          </Link>
+          <BlogCard
+            key={blog.value.id}
+            blog={blog}
+            pageCover={pageCover}
+            pageIcon={pageIcon}
+            pagePosition={pagePosition}
+            title={title}
+          />
         );
       })}
-    </>
+    </div>
   );
 }
+
+const BlogCard = ({
+  key,
+  blog,
+  pageCover,
+  pageIcon,
+  pagePosition,
+  title,
+}: {
+  key: string;
+  blog: { role: Role; value: Block };
+  pageCover: string | null;
+  pageIcon: string | null;
+  pagePosition: number;
+  title: string;
+}) => {
+  return (
+    <Link key={key} href={`/blog/${blog.value.id}`}>
+      <div className="w-[213px]">
+        <div className="relative h-[120px] ">
+          {pageCover && (
+            <Image
+              className={cn(
+                "h-auto w-auto object-cover",
+                pagePosition === 1
+                  ? "object-top"
+                  : pagePosition === 2
+                    ? "object-center"
+                    : "object-bottom",
+              )}
+              src={pageCover}
+              fill
+              alt={title}
+            />
+          )}
+        </div>
+
+        <div className="flex">
+          {pageIcon && (
+            <Image
+              className="h-fit"
+              src={pageIcon}
+              width={20}
+              height={20}
+              alt={title}
+            />
+          )}
+
+          <div>{title}</div>
+        </div>
+      </div>
+    </Link>
+  );
+};
