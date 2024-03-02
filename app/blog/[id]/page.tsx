@@ -1,6 +1,7 @@
 import { notion } from "@/lib/notion";
 import { NotionPage } from "@/components/notion";
 import { BaseBlock, Role } from "notion-types";
+import { siteConfig } from "@/config/site";
 
 interface CollectionBlock extends BaseBlock {
   is_template?: boolean;
@@ -8,7 +9,7 @@ interface CollectionBlock extends BaseBlock {
 // TODO: Add Cloudinary image hosting
 // TODO: Include nested pages
 export async function generateStaticParams() {
-  const rootPageId = "1ecf59c6f5c74f25b1a0d91f7c8dbe1c";
+  const rootPageId = siteConfig.notionPages.blogRootId;
   const recordMap = await notion.getPage(rootPageId);
 
   const blogs = Object.values(recordMap.block).filter(
