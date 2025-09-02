@@ -2,7 +2,7 @@
 
 ## Tech Blog Showcase
 
-This project originally started as a personal tech blog, a space for me to document my learnings and share my thoughts on web development. While I've since moved my active blogging to [my main portfolio](https://www.synthcode.net/en/blog), this repository remains a valuable snapshot of my journey and a testament to my problem-solving skills. It showcases my ability to work with modern web technologies, integrate third-party APIs, and even dive deep into open-source libraries to overcome technical challenges.
+This project originally started as a personal tech blog, a space for me to document my learnings and share my thoughts on web development. While I've since moved my active blogging to [my main portfolio](https://www.synthcode.net/blog), this repository remains a valuable snapshot of my journey and a testament to my problem-solving skills. It showcases my ability to work with modern web technologies, integrate third-party APIs, and even dive deep into open-source libraries to overcome technical challenges.
 
 The main goal of this project was to use Notion as a headless CMS for a blog. I wanted to be able to write my posts in Notion and have them automatically appear on my website, rendered as closely as possible to the original Notion page.
 
